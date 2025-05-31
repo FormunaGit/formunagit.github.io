@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 @import 'tailwindcss';
-
 /* Colors are from Rose Pine
-   https://rosepinetheme.com/ */
+   https://rosepinetheme.com/
+   Quicksand font from Google Fonts
+   https://fonts.google.com/
+*/
 
 body {
 	background-color: #191724;
 	color: #e0def4;
+	font-family: 'Quicksand', sans-serif;
+	text-align: center;
+	padding: 1rem;
+}
+
+.rose-pine {
+	background-color: #26233a;
 }
