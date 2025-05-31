@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+/* Colors are from Rose Pine
+   https://rosepinetheme.com/ */
+
+body {
+	background-color: #191724;
+	color: #e0def4;
+}
