@@ -1,19 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 @import 'tailwindcss';
+
+/* Universal box-sizing for consistent layout */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Ensure html and body fill the viewport for cursor effects */
+html {
+	height: 100%;
+}
+
 /* Colors are from Rose Pine
    https://rosepinetheme.com/
-   Quicksand font from Google Fonts
+   Quicksand font and Pixelify Sans font from Google Fonts
    https://fonts.google.com/
 */
 
 body {
+	min-height: 100vh; /* Make body at least 100% of viewport height */
+	margin: 0; /* Remove default body margin */
 	background-color: #191724;
 	color: #e0def4;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Pixelify Sans', sans-serif;
 	text-align: center;
 	padding: 1rem;
 }
 
 .rose-pine {
 	background-color: #26233a;
+}
+
+.pixel-corners {
+	clip-path: polygon(
+		0px calc(100% - 20px),
+		4px calc(100% - 20px),
+		4px calc(100% - 12px),
+		8px calc(100% - 12px),
+		8px calc(100% - 8px),
+		12px calc(100% - 8px),
+		12px calc(100% - 4px),
+		20px calc(100% - 4px),
+		20px 100%,
+		calc(100% - 20px) 100%,
+		calc(100% - 20px) calc(100% - 4px),
+		calc(100% - 12px) calc(100% - 4px),
+		calc(100% - 12px) calc(100% - 8px),
+		calc(100% - 8px) calc(100% - 8px),
+		calc(100% - 8px) calc(100% - 12px),
+		calc(100% - 4px) calc(100% - 12px),
+		calc(100% - 4px) calc(100% - 20px),
+		100% calc(100% - 20px),
+		100% 20px,
+		calc(100% - 4px) 20px,
+		calc(100% - 4px) 12px,
+		calc(100% - 8px) 12px,
+		calc(100% - 8px) 8px,
+		calc(100% - 12px) 8px,
+		calc(100% - 12px) 4px,
+		calc(100% - 20px) 4px,
+		calc(100% - 20px) 0px,
+		20px 0px,
+		20px 4px,
+		12px 4px,
+		12px 8px,
+		8px 8px,
+		8px 12px,
+		4px 12px,
+		4px 20px,
+		0px 20px
+	);
 }
