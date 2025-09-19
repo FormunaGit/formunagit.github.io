@@ -1,13 +1,18 @@
 <script>
 	import { onMount } from 'svelte';
+	// @ts-ignore
 	import { fairyDustCursor } from 'cursor-effects';
 
-	onMount(() => {
-		// Initialize fairyDustCursor once the component is mounted (and thus the DOM is ready)
-		new fairyDustCursor({
-			colors: ['#eb6f92', '#9ccfd8', '#c4a7e7']
-		});
-	});
-</script>
+	let reducedMotion = false;
 
-<!-- This component doesn't render any visible HTML elements itself -->
+	onMount(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    reducedMotion = mediaQuery.matches;
+
+    if (!reducedMotion) {
+      new fairyDustCursor({
+        colors: ['#eb6f92', '#9ccfd8', '#c4a7e7']
+      });
+    }
+  });
+</script>
