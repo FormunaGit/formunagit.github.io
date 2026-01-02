@@ -14,8 +14,7 @@ html {
 	height: 100%;
 }
 
-/* Colors are from Rose Pine
-   https://rosepinetheme.com/
+/* Colors are custom
    Quicksand font and Pixelify Sans font from Google Fonts
    https://fonts.google.com/
 */
@@ -23,17 +22,20 @@ html {
 body {
 	min-height: 100vh; /* Make body at least 100% of viewport height */
 	margin: 0; /* Remove default body margin */
-	background-color: #191724;
-	color: #e0def4;
+	background-color: #111;
+	color: #fff;
 	font-family: 'Pixelify Sans', sans-serif;
 	text-align: center;
 	padding: 1rem;
 }
 
-.rose-pine {
-	background-color: #26233a;
+.layer-1 {
+	background-color: #151515;
+	border-width: 2px;
+	border-color: mediumseagreen;
 }
 
+/*
 .pixel-corners {
 	clip-path: polygon(
 		0px calc(100% - 20px),
@@ -73,4 +75,4 @@ body {
 		4px 20px,
 		0px 20px
 	);
-}
+}*/
