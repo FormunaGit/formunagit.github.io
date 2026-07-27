@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Formuna's Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-4.0.0.min.js"
+      integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="banner">
+      <p>made in pure html</p>
+      <p>rarely revived, recently revived for stardance</p>
+      <p>wowwies real cool</p>
+    </div>
+
+    <div class="links">
+      <a href="https://github.com/FormunaGit"
+        ><span class="mdi--github"></span
+      ></a>
+      <a href="https://steamcommunity.com/id/formuna"
+        ><span class="mdi--steam"></span
+      ></a>
+      <a href="https://stardance.hackclub.com/@Formuna"
+        ><span class="boxicons--sparkle-filled"></span
+      ></a>
+      <a href="https://playvortex.io/users/16004/profile"
+        ><span class="at-icons--vortex"></span
+      ></a>
+    </div>
+
+    <h1>Welcome to...</h1>
+    <h2>my Personal Webpage!</h2>
+
+    <p>I'm Formuna, a developer and tech enthusiast.</p>
+
+    <div id="clicker"></div>
+
+    <div class="grid">
+      <div class="projects">
+        <div class="project">
+          <a href="https://github.com/FormunaGit/libjjs"><h3>libjjs</h3></a>
+          <p style="padding: 0.25em">
+            A Python library for creating
+            <a
+              href="https://www.roblox.com/games/9391468976/Jujutsu-Shenanigans"
+            >
+              Jujutsu Shenanigans
+            </a>
+            movesets.
+          </p>
+          <img
+            src="https://raw.githubusercontent.com/FormunaGit/libjjs/refs/heads/main/assets/libjjs-small.png"
+            alt="libjjs logo"
+          />
+        </div>
+        <div class="skills">
+          <div>
+            <span class="akar-icons--python-fill"></span>
+            <span class="picon--lua"></span>
+            <span class="devicon-plain--javascript"></span>
+          </div>
+          <hr />
+          <div>
+            <span class="selfhst--zed-light"></span>
+            <span class="simple-icons--robloxstudio"></span>
+            <span class="simple-icons--godotengine"></span>
+          </div>
+          <hr />
+          <div>
+            <span class="uil--microsoft"></span>
+            <span class="simple-icons--nixos"></span>
+            <span class="material-symbols--android"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <i style="color: var(--bg4)">...yeah that's all.</i>
+
+    <script>
+      var byeaudio = new Audio("./bye bye.mp3");
+      var flashbang = new Audio("./flashbang.mp3");
+      const delay = (seconds) =>
+        new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+
+      byeaudio.volume = 1;
+      flashbang.volume = 0.3;
+
+      $("#clicker").on("click", async function () {
+        $('<img>')
+            .attr('src', 'flashbang.gif?x=' + Math.random())
+            .attr('alt', 'Descriptive text')
+            .attr('id', 'flashbang')
+            .appendTo('body');
+        setTimeout(() => {
+          byeaudio.play();
+          setTimeout(() => {
+            flashbang.play();
+          }, 1000);
+        }, 3000);
+        await delay(4.45);
+        $("#flashbang").remove();
+        $("body").empty();
+        $('<div></div>')
+          .attr('id', 'remaining-text')
+          .append('<i>you never saw anything here...</i>')
+          .appendTo('body');
+        $('<div></div>')
+          .attr('id', 'flashbang-aftermath')
+          .appendTo('body');
+
+        setTimeout(() => {
+          $('<p>...you wanna reload the page?</p>')
+            .appendTo('#remaining-text');
+
+          $('#remaining-text p').on('click', () => {
+            location.reload();
+          });
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>
