@@ -3,6 +3,7 @@
   <head>
     <title>Formuna's Page</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
     <script
       src="https://code.jquery.com/jquery-4.0.0.min.js"
       integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
@@ -10,13 +11,13 @@
     ></script>
   </head>
   <body>
-    <div class="banner">
+    <div class="banner bannerhover">
       <p>made in pure html</p>
       <p>rarely revived, recently revived for stardance</p>
       <p>wowwies real cool</p>
     </div>
 
-    <div class="links">
+    <div class="links bannerhover">
       <a href="https://github.com/FormunaGit"
         ><span class="mdi--github"></span
       ></a>
@@ -81,6 +82,31 @@
     <i style="color: var(--bg4)">...yeah that's all.</i>
 
     <script>
+      const style = getComputedStyle(document.documentElement);
+      const primaryColor = style.getPropertyValue("--primary-color");
+
+      window.addEventListener("load", (event) => {
+        new cursoreffects.clockCursor({
+          dateColor: style.getPropertyValue("--blue"),
+          faceColor: style.getPropertyValue("--fg0"),
+          secondsColor: style.getPropertyValue("--red"),
+          minutesColor: style.getPropertyValue("--fg0"),
+          hoursColor: style.getPropertyValue("--fg0"),
+        });
+      });
+
+      const bannerElements = document.querySelectorAll(".bannerhover");
+
+      bannerElements.forEach((element) => {
+        element.addEventListener("mouseenter", () => {
+          bannerElements.forEach((el) => el.classList.add("is-hovered"));
+        });
+
+        element.addEventListener("mouseleave", () => {
+          bannerElements.forEach((el) => el.classList.remove("is-hovered"));
+        });
+      });
+
       var byeaudio = new Audio("./bye bye.mp3");
       var flashbang = new Audio("./flashbang.mp3");
       const delay = (seconds) =>
@@ -90,11 +116,11 @@
       flashbang.volume = 0.3;
 
       $("#clicker").on("click", async function () {
-        $('<img>')
-            .attr('src', 'flashbang.gif?x=' + Math.random())
-            .attr('alt', 'Descriptive text')
-            .attr('id', 'flashbang')
-            .appendTo('body');
+        $("<img>")
+          .attr("src", "flashbang.gif?x=" + Math.random())
+          .attr("alt", "Descriptive text")
+          .attr("id", "flashbang")
+          .appendTo("body");
         setTimeout(() => {
           byeaudio.play();
           setTimeout(() => {
@@ -104,19 +130,16 @@
         await delay(4.45);
         $("#flashbang").remove();
         $("body").empty();
-        $('<div></div>')
-          .attr('id', 'remaining-text')
-          .append('<i>you never saw anything here...</i>')
-          .appendTo('body');
-        $('<div></div>')
-          .attr('id', 'flashbang-aftermath')
-          .appendTo('body');
+        $("<div></div>")
+          .attr("id", "remaining-text")
+          .append("<i>you never saw anything here...</i>")
+          .appendTo("body");
+        $("<div></div>").attr("id", "flashbang-aftermath").appendTo("body");
 
         setTimeout(() => {
-          $('<p>...you wanna reload the page?</p>')
-            .appendTo('#remaining-text');
+          $("<p>...you wanna reload the page?</p>").appendTo("#remaining-text");
 
-          $('#remaining-text p').on('click', () => {
+          $("#remaining-text p").on("click", () => {
             location.reload();
           });
         }, 3000);
